@@ -14,7 +14,7 @@ usage
     <?php
     $stdout = fopen("out.log", "a");
     $tmp_fd = fildes_fileno($stdout);
-    if($tmp_fd, fildes_fileno(STDOUT))<0){
+    if(fildes_dup2($tmp_fd, fildes_fileno(STDOUT))<0){
         fwrite(STDERR, "dup2 failed");
         exit;
     }
